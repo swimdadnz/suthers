@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Eight-ball symbol</title>
+  <defs>
+    <radialGradient id="ball" cx="30%" cy="23%" r="82%">
+      <stop stop-color="#5e7175"/>
+      <stop offset=".29" stop-color="#17272e"/>
+      <stop offset=".75" stop-color="#060f17"/>
+      <stop offset="1" stop-color="#02070c"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="29" fill="url(#ball)" stroke="#e7b76c" stroke-width="2.3"/>
+  <ellipse cx="23" cy="15" rx="12" ry="5" transform="rotate(-26 23 15)" fill="#f7f4df" opacity=".18"/>
+  <circle cx="32" cy="32" r="15.5" fill="#f8f4e9" stroke="#b9cbd0" stroke-width=".7"/>
+  <text x="32" y="41" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="25" text-anchor="middle" fill="#0c202a">8</text>
+</svg>

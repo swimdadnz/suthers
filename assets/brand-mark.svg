@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+<title id="title">Suther's Cup crest</title><desc id="desc">A silver trophy with two pool cues and an eight-ball on a teal and gold circular emblem.</desc>
+<defs>
+ <radialGradient id="felt" cx="40%" cy="34%" r="75%"><stop stop-color="#205d64"/><stop offset="1" stop-color="#0a222d"/></radialGradient>
+ <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffef4"/><stop offset="0.45" stop-color="#bdd2d5"/><stop offset="1" stop-color="#f6e7bc"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe2a1"/><stop offset="1" stop-color="#b87932"/></linearGradient>
+</defs>
+<circle cx="120" cy="120" r="111" fill="#071822" stroke="url(#gold)" stroke-width="7"/>
+<circle cx="120" cy="120" r="100" fill="url(#felt)" stroke="#518b89" stroke-width="1.5"/>
+<g stroke="#b88e57" stroke-width="8" stroke-linecap="round"><path d="M48 183 189 42"/><path d="M52 45 193 186"/></g>
+<g stroke="#ead9b8" stroke-width="3" stroke-linecap="round"><path d="M48 183 189 42"/><path d="M52 45 193 186"/></g>
+<path d="M81 70 H159 L155 118 C154 133 138 145 120 146 C102 145 86 133 85 118 Z" fill="url(#metal)" stroke="#f5eaca" stroke-width="2"/>
+<path d="M82 78 C61 63 55 87 63 102 C68 112 77 112 87 111 M158 78 C179 63 185 87 177 102 C172 112 163 112 153 111" fill="none" stroke="url(#metal)" stroke-width="9" stroke-linecap="round"/>
+<path d="M113 145 H127 L131 168 H109 Z" fill="url(#metal)"/><path d="M98 170 H142 L147 179 H93 Z" fill="url(#metal)"/><path d="M85 184 H155 L160 192 H80 Z" fill="url(#gold)"/>
+<circle cx="120" cy="99" r="24" fill="#0a111c" stroke="#d49e55" stroke-width="2.5"/>
+<circle cx="120" cy="99" r="12" fill="#f6f2e6"/><text x="120" y="106" font-family="Arial,sans-serif" font-weight="800" text-anchor="middle" font-size="20" fill="#112531">8</text>
+<path d="m120 30 4.2 9.3 10.1 1.2-7.5 7 2 10-8.8-5-8.8 5 2-10-7.5-7 10.1-1.2z" fill="url(#gold)"/>
+<circle cx="120" cy="120" r="107" fill="none" stroke="#f4deb4" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="2 8"/>
+</svg>
