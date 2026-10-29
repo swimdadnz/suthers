@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#091c29">
+  <meta name="description" content="The Suther's Cup: pool tournament history, original rules, and the live Edition #34 draw and results.">
+  <meta property="og:title" content="Suther's Cup | Edition #34">
+  <meta property="og:description" content="The trophy. The legends. The draw. 30 October 2026.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Suther's Cup | Edition #34</title>
+  <script src="history.js" defer></script>
+  <script src="tournament-core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="atmosphere" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <button class="brand-lockup" type="button" data-nav="home" aria-label="Suther's Cup home">
+        <img src="assets/brand-mark.svg" width="52" height="52" alt="">
+        <span class="brand-type"><strong>SUTHER'S <em>CUP</em></strong><small>THE ANNUAL POOL CHAMPIONSHIP</small></span>
+      </button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button type="button" data-nav="home" class="nav-button active" aria-current="page"><span class="nav-icon" aria-hidden="true">⌂</span>Home</button>
+        <button type="button" data-nav="history" class="nav-button"><span class="nav-icon" aria-hidden="true">★</span>Hall of Fame</button>
+        <button type="button" data-nav="rules" class="nav-button"><span class="nav-icon" aria-hidden="true">☷</span>Cup Rules</button>
+        <button type="button" data-nav="edition" class="nav-button"><span class="nav-icon" aria-hidden="true">◉</span>Edition #34</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="shell" tabindex="-1">
+    <section id="view-home" class="view active" aria-labelledby="home-heading">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="gold-line"></span> LEGACY. RIVALRY. EIGHT BALL.</div>
+          <img src="assets/brand-mark.svg" class="hero-mark" width="126" height="126" alt="Suther's Cup trophy and eight-ball crest">
+          <p class="hero-kicker">A tradition on the table</p>
+          <h1 id="home-heading"><span>SUTHER'S</span><span class="hero-title-bottom">CUP<span class="period">.</span></span></h1>
+          <p class="hero-intro" id="hero-intro">Thirty-three chapters in the record books. One trophy everyone wants. A new name waiting to be etched.</p>
+          <div class="hero-cta"><button type="button" class="button button-gold" data-nav="edition">Enter Edition #34 <span aria-hidden="true">↗</span></button><button type="button" class="button button-ghost" data-nav="history">Explore the champions</button></div>
+          <div class="event-chip"><span class="event-chip-dot"></span><span>FRIDAY 30 OCTOBER 2026</span><b>•</b> <span>EDITION 34</span></div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-visual-glow" aria-hidden="true"></div>
+          <figure class="hero-photo"><img src="assets/trophy-and-beer.webp" alt="The Suther's Cup silver trophy on its dark base beside a glass of beer" loading="eager"><figcaption>THE PRIZE THAT MATTERS</figcaption></figure>
+          <div class="photo-floating-note"><span>34</span><small id="hero-chapter-label">THE NEXT<br>CHAPTER</small></div>
+        </div>
+      </div>
+      <div class="stat-strip" id="home-stats" aria-label="Suther's Cup statistics"></div>
+      <section class="home-section">
+        <div class="section-heading-row"><div><p class="section-eyebrow">THE CUP IS EARNED</p><h2>More than a game.</h2></div><p class="section-teaser">The stories are in the scores. The history is etched in silver. The next result is yours to make.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card feature-photo-card">
+            <img src="assets/trophy-engraving.webp" alt="Close-up of the engraved Suther's Cup winners' plaque through April 2026" loading="lazy">
+            <div class="feature-photo-overlay"><span class="eyebrow small">A SILVER LINING</span><h3>The names behind the legend.</h3><button class="text-link" type="button" data-nav="history">See every winner <span aria-hidden="true">↗</span></button></div>
+          </article>
+          <article class="feature-card feature-history-card"><div class="feature-card-icon">★</div><span class="eyebrow small">HALL OF FAME</span><h3>Legends of the felt.</h3><p>Explore every champion and runner-up from the first recorded edition to the latest contest.</p><div id="home-leaders" class="mini-leaderboard"></div><button type="button" class="text-link" data-nav="history">Open the record book <span aria-hidden="true">↗</span></button></article>
+          <article class="feature-card feature-action-card"><img src="assets/eight-ball-icon.svg" class="feature-card-icon feature-eightball-icon" alt="" aria-hidden="true"><span class="eyebrow small">30 OCTOBER 2026</span><h3 id="home-event-title">Who's taking the cup home?</h3><p id="home-event-copy">Create a balanced draw, tap match winners, and watch the knockout bracket take shape automatically.</p><div class="eightball-drawing" aria-hidden="true"><span>8</span><i></i></div><button type="button" class="button button-gold full-width" data-nav="edition" id="home-event-button">Open tournament manager <span aria-hidden="true">↗</span></button></article>
+        </div>
+      </section>
+    </section>
+
+    <section id="view-history" class="view" aria-labelledby="history-heading" hidden>
+      <div class="page-intro"><div><p class="section-eyebrow">ESTABLISHED IN THE RECORDS</p><h1 id="history-heading">HALL OF <span>FAME.</span></h1><p class="page-description">The roll of honour. Every recorded winner and runner-up, April 2004 to the present.</p></div><div class="intro-number"><span id="history-edition-total">33</span><small>EDITIONS RECORDED</small></div></div>
+      <div id="history-stat-grid" class="history-stat-grid"></div>
+      <div class="history-layout">
+        <section class="panel history-results-panel" aria-labelledby="history-table-title"><div class="panel-heading"><div><span class="panel-icon">▤</span><h2 id="history-table-title">The record book</h2></div><label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Search historical results</span><input type="search" id="history-search" placeholder="Search player, edition or date…" autocomplete="off"></label></div>
+          <div class="table-scroll"><table class="data-table history-table"><thead><tr><th scope="col">EDITION</th><th scope="col">DATE</th><th scope="col">WINNER</th><th scope="col">RUNNER-UP</th></tr></thead><tbody id="history-body"></tbody></table></div>
+          <p class="data-footnote" id="history-footer">Historical results transcribed from the supplied 33-edition record.</p>
+        </section>
+        <aside class="history-aside"><section class="panel"><div class="panel-heading"><div><span class="panel-icon">★</span><h2>Most titles</h2></div></div><div id="champion-leaderboard"></div></section><section class="panel engraved-panel"><p class="section-eyebrow">THE HARDWARE</p><h2>Proof in the engraving.</h2><img src="assets/trophy-engraving.webp" alt="Suther's Cup engraved winners' plaque" loading="lazy"><p>Winners become part of the trophy. The record stretches back to April 2004.</p></section></aside>
+      </div>
+    </section>
+
+    <section id="view-rules" class="view" aria-labelledby="rules-heading" hidden>
+      <div class="page-intro"><div><p class="section-eyebrow">OFFICIAL ARCHIVE · MARCH 2011</p><h1 id="rules-heading">THE CUP <span>RULES.</span></h1><p class="page-description">The original Suther's Cup rules, Version 2 (March 2011), reorganised for quick reference during a match.</p></div><div class="intro-number"><span>8</span><small>BALL · HOUSE RULES</small></div></div>
+      <div class="rules-layout">
+        <div class="rules-accordions">
+          <details class="rule-group" open><summary><span class="rule-index">01</span><span>The break</span><span class="rule-plus"></span></summary><div class="rule-content"><ul><li>Determine the breaker by coin toss or by rolling the white ball closest to the end.</li><li>If more than one ball is potted on the break, the breaker nominates a colour and continues.</li><li>If a ball is potted on the break but there is a foul, the table is open for the non-breaker.</li><li>If the black is potted on the break, re-break.</li></ul></div></details>
+          <details class="rule-group"><summary><span class="rule-index">02</span><span>Fouls and the two-shot rule</span><span class="rule-plus"></span></summary><div class="rule-content"><p>These are a variation of UK rules. A foul generally gives the opponent two shots; the second shot is lost if the player pots a ball on the first.</p><p>Two shots do not apply while playing the black. The original rules also state that a player loses any remaining two shots if they foul, and the opponent receives two shots.</p><p>A foul includes:</p><ul><li>Missing your ball or contacting an opponent's ball or the black before your own ball.</li><li>Any ball leaving the table.</li><li>Potting the white ball.</li><li>Potting an opponent's ball.</li></ul><p>Potting the black before it is your last ball loses the match. Other fouls on the black do not automatically lose the game.</p></div></details>
+          <details class="rule-group"><summary><span class="rule-index">03</span><span>Black ball and nominated pocket</span><span class="rule-plus"></span></summary><div class="rule-content"><ul><li>You must nominate a pocket for the black.</li><li>If the black goes into a different pocket, it is a foul and the black returns to the spot.</li><li>There is only one shot on the black.</li><li>The black must be potted by itself to win; otherwise it is a foul and is spotted again.</li></ul></div></details>
+          <details class="rule-group"><summary><span class="rule-index">04</span><span>Snookers after a foul</span><span class="rule-plus"></span></summary><div class="rule-content"><ul><li>If the opponent fouls and leaves you snookered, you may nominate an opponent's ball to contact as a legal shot.</li><li>You still foul if you pot the opponent's ball. If nothing is potted, you retain the second shot.</li><li>When snookered on the black by an opponent, you may nominate one of the opponent's balls to hit, but still have only one shot on the black.</li><li>This concession does not apply if you snooker yourself.</li></ul></div></details>
+          <details class="rule-group"><summary><span class="rule-index">05</span><span>Balls leaving the table</span><span class="rule-plus"></span></summary><div class="rule-content"><ul><li>If the white is potted or leaves the table, it may be played from anywhere in the D.</li><li>If a coloured ball leaves the table, place it on the spot (or as near as possible).</li><li>Accidental contact that moves balls on the table is not a foul; replace the balls as close to their original positions as possible.</li><li>If another player catches a ball hit off the table before it touches the ground, the player responsible owes the catcher a drink.</li></ul></div></details>
+          <details class="rule-group"><summary><span class="rule-index">06</span><span>Playing conditions</span><span class="rule-plus"></span></summary><div class="rule-content"><ul><li>Mechanical bridge/rest sticks are not permitted. Play behind your back or use your other hand if required.</li><li>At least one foot must touch the floor when playing a shot.</li><li>No “spading” during a game of pool. The original rules do not further define this term.</li></ul></div></details>
+          <details class="rule-group"><summary><span class="rule-index">07</span><span>Downtrou</span><span class="rule-plus"></span></summary><div class="rule-content"><p>Triggered by either:</p><ul><li>Losing a game without potting any of your balls; or</li><li>Losing all your round-robin games.</li></ul><p>Penalty: trousers down and round the table <strong>or</strong> a round of shots for the other players.</p></div></details>
+          <details class="rule-group"><summary><span class="rule-index">08</span><span>Final decisions</span><span class="rule-plus"></span></summary><div class="rule-content"><p>The March 2011 document states that any disputed matter not covered by the written rules is referred to the original rule-maker, whose decision is final.</p></div></details>
+        </div>
+        <aside class="rules-aside"><div class="rules-poster"><div class="rules-poster-mark">8</div><p class="section-eyebrow">REMEMBER THE BASICS</p><h2>Call your pocket.<br><em>Respect the table.</em></h2><p>One black ball. Two-shot fouls. Zero excuses.</p></div><div class="note-panel"><h3>About this transcription</h3><p>The source is “Suther’s Cup Rules (Version 2 – March 2011)”. Clauses are grouped by topic, with one outdated expression replaced by neutral wording. The meaning is otherwise intended to be preserved; ambiguous provisions remain subject to the organiser’s judgement.</p><p class="note-secondary"><strong>Tournament format is separate:</strong> the scheduling, standings and tie-break method in Edition #34 are software administration choices, not provisions of the 2011 rules.</p></div></aside>
+      </div>
+    </section>
+
+    <section id="view-edition" class="view" aria-labelledby="edition-heading" hidden>
+      <div class="page-intro edition-intro"><div><p class="section-eyebrow">FRIDAY 30 OCTOBER 2026</p><h1 id="edition-heading">EDITION <span>#34.</span></h1><p class="page-description">One draw. One live scoreboard. One new entry on the trophy.</p></div><div class="event-state" id="event-state"><span class="event-state-dot"></span><span id="event-state-label">READY TO SET UP</span></div></div>
+      <div class="event-tools panel"><div class="save-state"><span id="save-icon" class="save-light"></span><div><strong id="save-status">Saved locally on this device</strong><small id="save-detail">Changes persist on refresh in this browser. Back up regularly.</small></div></div><div class="event-tool-buttons"><button type="button" class="button button-minor" id="export-json-btn" title="Download a complete recoverable tournament backup">↓ Backup JSON</button><button type="button" class="button button-minor" id="import-json-btn" title="Restore a previous complete tournament backup">↑ Restore</button><button type="button" class="button button-minor" id="export-csv-btn" title="Download all match results in spreadsheet format">↓ CSV</button><button type="button" class="button button-minor" id="print-btn" title="Open the browser's Print / Save as PDF dialogue">⎙ PDF / Print</button><input id="import-file-input" type="file" accept="application/json,.json" hidden></div></div>
+      <div id="setup-panel" class="panel setup-panel">
+        <div class="panel-heading"><div><span class="panel-icon">⚑</span><h2>Build the draw</h2></div><span class="panel-tag">STEP 01 · SETUP</span></div>
+        <p class="panel-description">Enter the competitors and the match budget. The system allocates unique round-robin matches as evenly as possible, reserves the knockout games, and checks the minimum before creating the draw.</p>
+        <div class="setup-grid">
+          <div><div class="field-group"><label for="player-count">Number of players <span class="required">*</span></label><input id="player-count" type="number" min="2" max="24" step="1" value="8"><small>2–24 players</small></div><div class="player-field-heading"><label>Competitor names</label><span>One name per entry</span></div><div id="name-inputs" class="player-input-grid"></div></div>
+          <div class="setup-parameters"><div class="field-group"><label for="max-matches">Maximum total games <span class="required">*</span></label><input id="max-matches" type="number" min="2" max="1000" step="1" value="24"><small>Includes round robin and every knockout match.</small></div><div class="field-group"><label for="min-matches">Minimum round-robin games per player <span class="optional">OPTIONAL</span></label><input id="min-matches" type="number" min="1" max="23" step="1" placeholder="Default: at least 1"><small>Guaranteed before knockouts. The number of total games cannot be guaranteed equally because eliminated players stop playing.</small></div><div class="field-group"><label for="bracket-choice">Knockout format</label><select id="bracket-choice"><option value="auto">Automatic (top 4 if feasible)</option><option value="2">Top 2 · Final only</option><option value="4">Top 4 · Semi-finals + final</option><option value="8">Top 8 · Quarter-finals onward</option></select><small>Automatic uses top 2 if top 4 cannot fit the match cap.</small></div>
+            <div id="draw-preview" class="draw-preview" aria-live="polite"></div>
+          </div>
+        </div>
+        <div id="setup-error" class="message message-error" role="alert" hidden></div>
+        <div class="setup-bottom"><span class="setup-small-print">Generating a replacement draw later will erase entered match results. Your current draft settings save automatically.</span><button id="generate-draw-btn" class="button button-gold button-large" type="button">Generate the draw <span aria-hidden="true">↗</span></button></div>
+      </div>
+
+      <div id="tournament-panel" hidden>
+        <div id="live-kpis" class="live-kpis"></div>
+        <div class="tournament-action-row"><div id="draw-facts" class="draw-facts"></div><button id="rebuild-btn" type="button" class="button button-minor">↻ Replace draw / edit players</button></div>
+        <nav class="subnav" aria-label="Tournament manager sections"><button type="button" data-subtab="round-robin" class="active">01 <span>Round robin</span></button><button type="button" data-subtab="knockout">02 <span>Knockout bracket</span></button><button type="button" data-subtab="summary">03 <span>Results & archive</span></button></nav>
+        <section id="subview-round-robin" class="subview"><div id="round-robin-view"></div></section>
+        <section id="subview-knockout" class="subview" hidden><div id="knockout-view"></div></section>
+        <section id="subview-summary" class="subview" hidden><div id="summary-view"></div></section>
+      </div>
+      <details class="storage-guide panel"><summary><span class="storage-guide-icon">ⓘ</span> How do I make sure the results aren't lost? <span class="rule-plus"></span></summary><div class="storage-guide-content"><p><strong>During the evening:</strong> use one nominated scoring device. Changes automatically save in that browser on that device; refreshing the page normally retains the draw and results. After a few matches, click <strong>Backup JSON</strong> and keep the file somewhere accessible (e.g. iCloud Drive, OneDrive, or email). If needed, use <strong>Restore</strong> to recover it.</p><p><strong>To share an updated site:</strong> the GitHub Pages website itself is read-only. Download the JSON backup, name it <code>edition34.json</code>, and replace <code>data/edition34.json</code> in your GitHub repository, then commit the change. Visitors will see that published snapshot, but changes they make still only save in their own browser until you publish another snapshot. If a visitor has older local results, they can use <strong>Load published results</strong> below.</p><p><strong>At the finish:</strong> select <strong>PDF / Print</strong> and choose “Save as PDF” to create a readable archive. PDF is <em>not</em> a restore file; keep the JSON backup as well. CSV is useful for Excel but does not preserve the full working state.</p><div class="guide-actions"><button type="button" class="button button-minor" id="load-published-btn" disabled>Load published results</button><span id="published-detail">No separate published snapshot loaded.</span></div><p class="note-secondary">GitHub Pages does not provide live multi-device score synchronisation. For simultaneous scoring on several phones, a database and authentication (e.g. Firebase/Supabase) would be required. Do not put GitHub tokens or database administrator keys into public site code.</p></div></details>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-inner"><div class="footer-brand"><img src="assets/brand-mark.svg" alt="" width="35" height="35"><span>SUTHER'S CUP <small>THE RECORD CONTINUES.</small></span></div><p>Edition #34 · 30 October 2026 <span aria-hidden="true">·</span> Built for the table, not the trophy cabinet.</p><button type="button" data-nav="edition" class="footer-link">TOURNAMENT MANAGER ↗</button></div></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <div class="print-sheet" id="print-sheet" aria-hidden="true"></div>
+</body>
+</html>
