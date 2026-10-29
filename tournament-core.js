@@ -19,7 +19,7 @@
     if (!Number.isInteger(count) || count < 2 || count > MAX_PLAYERS) errors.push('Enter between 2 and ' + MAX_PLAYERS + ' players.');
     if (!Number.isInteger(budget) || budget < 2 || budget > 1000) errors.push('Maximum total games must be a whole number between 2 and 1,000.');
     if (!Number.isInteger(minRR) || minRR < 1 || (Number.isInteger(count) && minRR > count - 1)) errors.push('Minimum round-robin games must be from 1 to the number of opponents available.');
-    if (!['auto', '2', '4', '8'].includes(bracketChoice)) errors.push('Choose a valid knockout format.');
+    if (!['auto', '2', '4', '8', 'mcintyre8', 'nrl8'].includes(bracketChoice)) errors.push('Choose a valid knockout format.');
     const names = Array.isArray(setup.names) ? setup.names.slice(0, count).map(v => typeof v === 'string' ? v.trim() : '') : [];
     if (Number.isInteger(count) && count >= 2 && count <= MAX_PLAYERS) {
       if (names.length !== count || names.some(n => !n)) errors.push('Enter a name for every player.');
@@ -29,25 +29,29 @@
     if (errors.length) return { ok: false, errors };
     const minFixtures = Math.ceil(count * minRR / 2);
     const potential = count * (count - 1) / 2;
-    const candidates = bracketChoice === 'auto' ? (count >= 4 ? [4, 2] : [2]) : [Number(bracketChoice)];
+    const isNineGame = bracketChoice === 'mcintyre8' || bracketChoice === 'nrl8';
+    const candidates = bracketChoice === 'auto' ? (count >= 4 ? [4, 2] : [2]) : [isNineGame ? 8 : Number(bracketChoice)];
+    const knockoutGamesForCandidate = candidate => isNineGame ? 9 : candidate - 1;
     let k = null;
     for (const candidate of candidates) {
-      if (candidate <= count && minFixtures + candidate - 1 <= budget) { k = candidate; break; }
+      if (candidate <= count && minFixtures + knockoutGamesForCandidate(candidate) <= budget) { k = candidate; break; }
     }
     if (!k) {
-      const candidate = bracketChoice === 'auto' ? 2 : Number(bracketChoice);
-      const needed = minFixtures + candidate - 1;
+      const candidate = candidates[candidates.length - 1];
+      const games = knockoutGamesForCandidate(candidate);
+      const needed = minFixtures + games;
       return { ok: false, errors: [
-        candidate > count ? 'A top-' + candidate + ' knockout requires at least ' + candidate + ' entrants.' :
-        'This format needs at least ' + needed + ' total games (' + minFixtures + ' round robin plus ' + (candidate - 1) + ' knockout). Increase the cap, lower the minimum, or use a smaller knockout.'
+        candidate > count ? 'A top-' + candidate + ' finals format requires at least ' + candidate + ' entrants.' :
+        'This format needs at least ' + needed + ' total games (' + minFixtures + ' round robin plus ' + games + ' finals). Increase the cap, lower the minimum, or use a smaller finals format.'
       ] };
     }
-    const knockoutGames = k - 1;
+    const knockoutGames = knockoutGamesForCandidate(k);
     const rrGames = Math.min(potential, budget - knockoutGames);
     const low = Math.floor(2 * rrGames / count);
     const high = Math.ceil(2 * rrGames / count);
     return { ok: true, errors: [], plan: {
       names, count, budget, minRR, qualifierCount: k,
+      knockoutFormat: isNineGame ? bracketChoice : 'standard',
       roundRobinGames: rrGames, knockoutGames, totalGames: rrGames + knockoutGames,
       minPerPlayer: low, maxPerPlayer: high, uniquePairs: potential
     } };
@@ -98,7 +102,7 @@
     return {
       edition: 34, eventDate: '2026-10-30', createdAt: new Date().toISOString(), drawSeed,
       maxMatches: plan.budget, minRoundRobinGames: plan.minRR,
-      qualifierCount: plan.qualifierCount,
+      qualifierCount: plan.qualifierCount, knockoutFormat: plan.knockoutFormat,
       players: plan.names.map((name, i) => ({ id: 'p' + (i + 1), name })),
       roundRobin: ordered
     };
@@ -139,6 +143,16 @@
     return entries.map((p, i) => ({ ...p, rank: i + 1 }));
   }
   function allRoundRobinFinished(t) { return !!t && t.roundRobin.length > 0 && t.roundRobin.every(m => !!m.winnerId); }
+  function knockoutMatchCount(tournament) {
+    if (!tournament) return 0;
+    return ['mcintyre8', 'nrl8'].includes(tournament.knockoutFormat) ? 9 : tournament.qualifierCount - 1;
+  }
+  function knockoutName(tournament) {
+    if (!tournament) return '';
+    if (tournament.knockoutFormat === 'mcintyre8') return 'McIntyre Final Eight';
+    if (tournament.knockoutFormat === 'nrl8') return 'NRL-style Final Eight';
+    return 'Top ' + tournament.qualifierCount + ' knockout';
+  }
   function getKnockout(tournament, storedResults, seedOverride) {
     if (!allRoundRobinFinished(tournament)) return { ready: false, stages: [], seeds: [], completed: 0, outcome: null };
     const ranking = statsFor(tournament).map(p => p.id);
@@ -146,23 +160,72 @@
       new Set(seedOverride).size === ranking.length && seedOverride.every(id => ranking.includes(id));
     const seeds = validOverride ? seedOverride.slice() : ranking;
     const count = tournament.qualifierCount;
-    const pairIndexes = count === 8 ? [[0,7], [3,4], [1,6], [2,5]] : count === 4 ? [[0,3],[1,2]] : [[0,1]];
+    const format = tournament.knockoutFormat || 'standard';
     const stages = [];
-    const levelCount = Math.log2(count);
-    for (let r = 0; r < levelCount; r++) {
-      const stage = { name: count === 8 && r === 0 ? 'Quarter-finals' : r === levelCount - 1 ? 'Final' : 'Semi-finals', matches: [] };
-      const matchesCount = count / Math.pow(2, r + 1);
-      for (let i = 0; i < matchesCount; i++) {
-        const aId = r === 0 ? seeds[pairIndexes[i][0]] : stages[r-1].matches[2*i].winnerId;
-        const bId = r === 0 ? seeds[pairIndexes[i][1]] : stages[r-1].matches[2*i+1].winnerId;
-        const id = 'ko-r' + r + '-m' + i;
-        const selected = storedResults && storedResults[id];
-        const winnerId = aId && bId && (selected === aId || selected === bId) ? selected : null;
-        stage.matches.push({ id, aId, bId, winnerId, index: i });
+    const select = (id, aId, bId, index) => {
+      const selected = storedResults && storedResults[id];
+      const winnerId = aId && bId && (selected === aId || selected === bId) ? selected : null;
+      return { id, aId: aId || null, bId: bId || null, winnerId, index };
+    };
+    const stage = (name, idPairs, note) => {
+      const entry = { name, matches: idPairs.map(([id, a, b], i) => select(id, a, b, i)) };
+      if (note) entry.note = note;
+      stages.push(entry);
+      return entry.matches;
+    };
+    const winner = match => match && match.winnerId;
+    const loser = match => match && match.winnerId ? (match.winnerId === match.aId ? match.bId : match.aId) : null;
+    if (format === 'nrl8' && count === 8) {
+      // NRL top-four double-chance finals, used since 2012. Nine games.
+      const first = stage('Qualifying and elimination finals', [
+        ['nrl-qf1', seeds[0], seeds[3]], ['nrl-qf2', seeds[1], seeds[2]],
+        ['nrl-ef1', seeds[4], seeds[7]], ['nrl-ef2', seeds[5], seeds[6]]
+      ], 'Top four have a second chance; 5th to 8th play elimination games.');
+      const second = stage('Semi-finals', [
+        ['nrl-sf1', loser(first[0]), winner(first[2])],
+        ['nrl-sf2', loser(first[1]), winner(first[3])]
+      ], 'Qualifying-final losers face elimination-final winners.');
+      const third = stage('Preliminary finals', [
+        ['nrl-pf1', winner(first[0]), winner(second[1])],
+        ['nrl-pf2', winner(first[1]), winner(second[0])]
+      ], 'Qualifying-final winners return after a bye.');
+      stage('Grand final', [['nrl-gf', winner(third[0]), winner(third[1])]]);
+    } else if (format === 'mcintyre8' && count === 8) {
+      // Original McIntyre Final Eight: 4v5, 3v6, 2v7, 1v8.
+      // Lowest two qualifying-final losers are eliminated; the highest two
+      // qualifying-final winners go directly to preliminary finals.
+      const first = stage('Qualifying finals', [
+        ['mc-qf1', seeds[3], seeds[4]], ['mc-qf2', seeds[2], seeds[5]],
+        ['mc-qf3', seeds[1], seeds[6]], ['mc-qf4', seeds[0], seeds[7]]
+      ], 'Play 4v5, 3v6, 2v7, 1v8 in that order. The two lowest-seeded losers are eliminated.');
+      const allKnown = first.every(m => m.winnerId);
+      // Relative ranking always uses the original round-robin seeds, not week-one results.
+      const rankedWinners = allKnown ? first.map(winner).sort((a,b) => seeds.indexOf(a)-seeds.indexOf(b)) : [];
+      const rankedLosers = allKnown ? first.map(loser).sort((a,b) => seeds.indexOf(a)-seeds.indexOf(b)) : [];
+      const second = stage('Semi-finals', [
+        ['mc-sf1', rankedWinners[3], rankedLosers[1]],
+        ['mc-sf2', rankedWinners[2], rankedLosers[0]]
+      ], 'The top two qualifying-final winners get a bye; 3rd and 4th winners face the two highest-ranked losers.');
+      const third = stage('Preliminary finals', [
+        ['mc-pf1', rankedWinners[0], winner(second[0])],
+        ['mc-pf2', rankedWinners[1], winner(second[1])]
+      ]);
+      stage('Grand final', [['mc-gf', winner(third[0]), winner(third[1])]]);
+    } else {
+      // Existing straight knockouts remain unchanged, including old JSON backups.
+      const pairIndexes = count === 8 ? [[0,7], [3,4], [1,6], [2,5]] : count === 4 ? [[0,3],[1,2]] : [[0,1]];
+      const levelCount = Math.log2(count);
+      for (let r = 0; r < levelCount; r++) {
+        const prev = stages[r - 1]?.matches;
+        const pairs = Array.from({length: count / Math.pow(2, r + 1)}, (_,i) => [
+          'ko-r' + r + '-m' + i,
+          r === 0 ? seeds[pairIndexes[i][0]] : winner(prev[2*i]),
+          r === 0 ? seeds[pairIndexes[i][1]] : winner(prev[2*i+1])
+        ]);
+        stage(count === 8 && r === 0 ? 'Quarter-finals' : r === levelCount - 1 ? 'Final' : 'Semi-finals', pairs);
       }
-      stages.push(stage);
     }
-    const finalMatch = stages[stages.length-1].matches[0];
+    const finalMatch = stages[stages.length - 1].matches[0];
     const outcome = finalMatch && finalMatch.winnerId ? {
       championId: finalMatch.winnerId,
       runnerUpId: finalMatch.aId === finalMatch.winnerId ? finalMatch.bId : finalMatch.aId
@@ -178,6 +241,8 @@
     const t = s.tournament;
     if (!t || t.edition !== 34 || !Array.isArray(t.players) || !Array.isArray(t.roundRobin) || ![2,4,8].includes(t.qualifierCount)) return false;
     if (t.players.length < 2 || t.players.length > MAX_PLAYERS || t.qualifierCount > t.players.length) return false;
+    if (t.knockoutFormat !== undefined && !['standard', 'mcintyre8', 'nrl8'].includes(t.knockoutFormat)) return false;
+    if (['mcintyre8', 'nrl8'].includes(t.knockoutFormat) && t.qualifierCount !== 8) return false;
     if (t.players.some((p,i) => !p || p.id !== 'p' + (i+1) || typeof p.name !== 'string' || !p.name.trim())) return false;
     const ids = new Set(t.players.map(p => p.id));
     if (t.roundRobin.length > t.players.length * (t.players.length - 1) / 2) return false;
@@ -193,5 +258,5 @@
     if (s.koResults && (typeof s.koResults !== 'object' || Object.values(s.koResults).some(id => !ids.has(id)))) return false;
     return true;
   }
-  return { MAX_PLAYERS, analyseSetup, createDraw, statsFor, allRoundRobinFinished, getKnockout, isValidSnapshot };
+  return { MAX_PLAYERS, analyseSetup, createDraw, statsFor, allRoundRobinFinished, getKnockout, knockoutMatchCount, knockoutName, isValidSnapshot };
 });
