@@ -1,1 +1,358 @@
-null
+{
+  "schemaVersion": 1,
+  "event": "Suther's Cup",
+  "edition": 34,
+  "eventDate": "2026-10-30",
+  "exportedAt": "2026-10-30T00:00:00+13:00",
+  "state": {
+    "setupDefaultsVersion": 2,
+    "setup": {
+      "count": 11,
+      "names": [
+        "Brad",
+        "Pete",
+        "Sean",
+        "Gary",
+        "Nick",
+        "Matt S",
+        "Jarrod",
+        "Lloyd",
+        "Ben",
+        "Kyle",
+        "Matt VG"
+      ],
+      "maxMatches": 53,
+      "minMatches": 8,
+      "bracket": "mcintyre8"
+    },
+    "tournament": {
+      "edition": 34,
+      "eventDate": "2026-10-30",
+      "createdAt": "2026-10-30T00:00:00+13:00",
+      "fixtureVersion": "official-11-20261030",
+      "fixtureSource": "Suthers Cup 34.xls / RR (11)",
+      "maxMatches": 53,
+      "minRoundRobinGames": 8,
+      "qualifierCount": 8,
+      "knockoutFormat": "mcintyre8",
+      "players": [
+        {
+          "id": "p1",
+          "name": "Brad"
+        },
+        {
+          "id": "p2",
+          "name": "Pete"
+        },
+        {
+          "id": "p3",
+          "name": "Sean"
+        },
+        {
+          "id": "p4",
+          "name": "Gary"
+        },
+        {
+          "id": "p5",
+          "name": "Nick"
+        },
+        {
+          "id": "p6",
+          "name": "Matt S"
+        },
+        {
+          "id": "p7",
+          "name": "Jarrod"
+        },
+        {
+          "id": "p8",
+          "name": "Lloyd"
+        },
+        {
+          "id": "p9",
+          "name": "Ben"
+        },
+        {
+          "id": "p10",
+          "name": "Kyle"
+        },
+        {
+          "id": "p11",
+          "name": "Matt VG"
+        }
+      ],
+      "roundRobin": [
+        {
+          "id": "rr-1",
+          "aId": "p1",
+          "bId": "p3",
+          "winnerId": null
+        },
+        {
+          "id": "rr-2",
+          "aId": "p1",
+          "bId": "p4",
+          "winnerId": null
+        },
+        {
+          "id": "rr-3",
+          "aId": "p1",
+          "bId": "p5",
+          "winnerId": null
+        },
+        {
+          "id": "rr-4",
+          "aId": "p1",
+          "bId": "p6",
+          "winnerId": null
+        },
+        {
+          "id": "rr-5",
+          "aId": "p1",
+          "bId": "p7",
+          "winnerId": null
+        },
+        {
+          "id": "rr-6",
+          "aId": "p1",
+          "bId": "p8",
+          "winnerId": null
+        },
+        {
+          "id": "rr-7",
+          "aId": "p1",
+          "bId": "p9",
+          "winnerId": null
+        },
+        {
+          "id": "rr-8",
+          "aId": "p1",
+          "bId": "p10",
+          "winnerId": null
+        },
+        {
+          "id": "rr-9",
+          "aId": "p2",
+          "bId": "p4",
+          "winnerId": null
+        },
+        {
+          "id": "rr-10",
+          "aId": "p2",
+          "bId": "p5",
+          "winnerId": null
+        },
+        {
+          "id": "rr-11",
+          "aId": "p2",
+          "bId": "p6",
+          "winnerId": null
+        },
+        {
+          "id": "rr-12",
+          "aId": "p2",
+          "bId": "p7",
+          "winnerId": null
+        },
+        {
+          "id": "rr-13",
+          "aId": "p2",
+          "bId": "p8",
+          "winnerId": null
+        },
+        {
+          "id": "rr-14",
+          "aId": "p2",
+          "bId": "p9",
+          "winnerId": null
+        },
+        {
+          "id": "rr-15",
+          "aId": "p2",
+          "bId": "p10",
+          "winnerId": null
+        },
+        {
+          "id": "rr-16",
+          "aId": "p2",
+          "bId": "p11",
+          "winnerId": null
+        },
+        {
+          "id": "rr-17",
+          "aId": "p3",
+          "bId": "p5",
+          "winnerId": null
+        },
+        {
+          "id": "rr-18",
+          "aId": "p3",
+          "bId": "p6",
+          "winnerId": null
+        },
+        {
+          "id": "rr-19",
+          "aId": "p3",
+          "bId": "p7",
+          "winnerId": null
+        },
+        {
+          "id": "rr-20",
+          "aId": "p3",
+          "bId": "p8",
+          "winnerId": null
+        },
+        {
+          "id": "rr-21",
+          "aId": "p3",
+          "bId": "p9",
+          "winnerId": null
+        },
+        {
+          "id": "rr-22",
+          "aId": "p3",
+          "bId": "p10",
+          "winnerId": null
+        },
+        {
+          "id": "rr-23",
+          "aId": "p3",
+          "bId": "p11",
+          "winnerId": null
+        },
+        {
+          "id": "rr-24",
+          "aId": "p4",
+          "bId": "p6",
+          "winnerId": null
+        },
+        {
+          "id": "rr-25",
+          "aId": "p4",
+          "bId": "p7",
+          "winnerId": null
+        },
+        {
+          "id": "rr-26",
+          "aId": "p4",
+          "bId": "p8",
+          "winnerId": null
+        },
+        {
+          "id": "rr-27",
+          "aId": "p4",
+          "bId": "p9",
+          "winnerId": null
+        },
+        {
+          "id": "rr-28",
+          "aId": "p4",
+          "bId": "p10",
+          "winnerId": null
+        },
+        {
+          "id": "rr-29",
+          "aId": "p4",
+          "bId": "p11",
+          "winnerId": null
+        },
+        {
+          "id": "rr-30",
+          "aId": "p5",
+          "bId": "p7",
+          "winnerId": null
+        },
+        {
+          "id": "rr-31",
+          "aId": "p5",
+          "bId": "p8",
+          "winnerId": null
+        },
+        {
+          "id": "rr-32",
+          "aId": "p5",
+          "bId": "p9",
+          "winnerId": null
+        },
+        {
+          "id": "rr-33",
+          "aId": "p5",
+          "bId": "p10",
+          "winnerId": null
+        },
+        {
+          "id": "rr-34",
+          "aId": "p5",
+          "bId": "p11",
+          "winnerId": null
+        },
+        {
+          "id": "rr-35",
+          "aId": "p6",
+          "bId": "p8",
+          "winnerId": null
+        },
+        {
+          "id": "rr-36",
+          "aId": "p6",
+          "bId": "p9",
+          "winnerId": null
+        },
+        {
+          "id": "rr-37",
+          "aId": "p6",
+          "bId": "p10",
+          "winnerId": null
+        },
+        {
+          "id": "rr-38",
+          "aId": "p6",
+          "bId": "p11",
+          "winnerId": null
+        },
+        {
+          "id": "rr-39",
+          "aId": "p7",
+          "bId": "p9",
+          "winnerId": null
+        },
+        {
+          "id": "rr-40",
+          "aId": "p7",
+          "bId": "p10",
+          "winnerId": null
+        },
+        {
+          "id": "rr-41",
+          "aId": "p7",
+          "bId": "p11",
+          "winnerId": null
+        },
+        {
+          "id": "rr-42",
+          "aId": "p8",
+          "bId": "p10",
+          "winnerId": null
+        },
+        {
+          "id": "rr-43",
+          "aId": "p8",
+          "bId": "p11",
+          "winnerId": null
+        },
+        {
+          "id": "rr-44",
+          "aId": "p9",
+          "bId": "p11",
+          "winnerId": null
+        }
+      ]
+    },
+    "koResults": {},
+    "seedOverride": null,
+    "ui": {
+      "subtab": "round-robin"
+    },
+    "savedAt": null
+  }
+}
