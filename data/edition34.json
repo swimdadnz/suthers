@@ -3,7 +3,7 @@
   "event": "Suther's Cup",
   "edition": 34,
   "eventDate": "2026-10-30",
-  "exportedAt": "2026-10-30T00:00:00+13:00",
+  "exportedAt": "2026-10-30T08:02:22.998Z",
   "state": {
     "setupDefaultsVersion": 2,
     "setup": {
@@ -92,13 +92,13 @@
           "id": "rr-2",
           "aId": "p1",
           "bId": "p4",
-          "winnerId": null
+          "winnerId": "p4"
         },
         {
           "id": "rr-3",
           "aId": "p1",
           "bId": "p5",
-          "winnerId": null
+          "winnerId": "p5"
         },
         {
           "id": "rr-4",
@@ -116,7 +116,7 @@
           "id": "rr-6",
           "aId": "p1",
           "bId": "p8",
-          "winnerId": null
+          "winnerId": "p8"
         },
         {
           "id": "rr-7",
@@ -128,19 +128,19 @@
           "id": "rr-8",
           "aId": "p1",
           "bId": "p10",
-          "winnerId": null
+          "winnerId": "p1"
         },
         {
           "id": "rr-9",
           "aId": "p2",
           "bId": "p4",
-          "winnerId": null
+          "winnerId": "p4"
         },
         {
           "id": "rr-10",
           "aId": "p2",
           "bId": "p5",
-          "winnerId": null
+          "winnerId": "p2"
         },
         {
           "id": "rr-11",
@@ -176,7 +176,7 @@
           "id": "rr-16",
           "aId": "p2",
           "bId": "p11",
-          "winnerId": null
+          "winnerId": "p2"
         },
         {
           "id": "rr-17",
@@ -194,7 +194,7 @@
           "id": "rr-19",
           "aId": "p3",
           "bId": "p7",
-          "winnerId": null
+          "winnerId": "p7"
         },
         {
           "id": "rr-20",
@@ -206,7 +206,7 @@
           "id": "rr-21",
           "aId": "p3",
           "bId": "p9",
-          "winnerId": null
+          "winnerId": "p3"
         },
         {
           "id": "rr-22",
@@ -218,7 +218,7 @@
           "id": "rr-23",
           "aId": "p3",
           "bId": "p11",
-          "winnerId": null
+          "winnerId": "p11"
         },
         {
           "id": "rr-24",
@@ -230,19 +230,19 @@
           "id": "rr-25",
           "aId": "p4",
           "bId": "p7",
-          "winnerId": null
+          "winnerId": "p4"
         },
         {
           "id": "rr-26",
           "aId": "p4",
           "bId": "p8",
-          "winnerId": null
+          "winnerId": "p8"
         },
         {
           "id": "rr-27",
           "aId": "p4",
           "bId": "p9",
-          "winnerId": null
+          "winnerId": "p4"
         },
         {
           "id": "rr-28",
@@ -266,7 +266,7 @@
           "id": "rr-31",
           "aId": "p5",
           "bId": "p8",
-          "winnerId": null
+          "winnerId": "p8"
         },
         {
           "id": "rr-32",
@@ -278,7 +278,7 @@
           "id": "rr-33",
           "aId": "p5",
           "bId": "p10",
-          "winnerId": null
+          "winnerId": "p10"
         },
         {
           "id": "rr-34",
@@ -290,25 +290,25 @@
           "id": "rr-35",
           "aId": "p6",
           "bId": "p8",
-          "winnerId": null
+          "winnerId": "p6"
         },
         {
           "id": "rr-36",
           "aId": "p6",
           "bId": "p9",
-          "winnerId": null
+          "winnerId": "p6"
         },
         {
           "id": "rr-37",
           "aId": "p6",
           "bId": "p10",
-          "winnerId": null
+          "winnerId": "p10"
         },
         {
           "id": "rr-38",
           "aId": "p6",
           "bId": "p11",
-          "winnerId": null
+          "winnerId": "p6"
         },
         {
           "id": "rr-39",
@@ -320,7 +320,7 @@
           "id": "rr-40",
           "aId": "p7",
           "bId": "p10",
-          "winnerId": null
+          "winnerId": "p7"
         },
         {
           "id": "rr-41",
@@ -344,7 +344,7 @@
           "id": "rr-44",
           "aId": "p9",
           "bId": "p11",
-          "winnerId": null
+          "winnerId": "p11"
         }
       ]
     },
@@ -353,6 +353,6 @@
     "ui": {
       "subtab": "round-robin"
     },
-    "savedAt": null
+    "savedAt": "2026-10-30T07:50:45.272Z"
   }
 }
